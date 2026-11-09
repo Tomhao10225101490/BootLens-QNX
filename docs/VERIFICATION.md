@@ -27,7 +27,7 @@ Date: 2026-11-09, Asia/Shanghai.
 
 ## Remaining validation
 
-Public repository was freshly cloned and all 17 tests passed. GitHub Pages public index.html, analyzer.js, app.js and style.css were compared against local source by SHA-256. YouTube publication was observed with the public URL https://youtu.be/IP4m4F7rZP8 and no copyright issues. Final submission remains pending. Browser multi-file import and responsive/device-width behavior have not been independently exercised.
+Public repository was freshly cloned and all 17 tests passed. GitHub Pages public index.html, analyzer.js, app.js and style.css were compared against local source by SHA-256. YouTube publication was observed with the public URL https://youtu.be/IP4m4F7rZP8 and no copyright issues. Final Devpost submission was observed with the “Project submitted!” success banner and the project listed under QNX Global Hackathon. Public project: https://devpost.com/software/bootlens . Browser multi-file import and responsive/device-width behavior have not been independently exercised.
 
 ## Scope
 
