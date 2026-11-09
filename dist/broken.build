@@ -1,0 +1,17 @@
+# BootLens authored diagnostic fixture, not a board-qualified boot image.
+# This file deliberately contains ordering and manifest mistakes.
+libc.so
+[virtual=x86_64,bios] .bootstrap = {
+    procnto-smp-instr
+    startup-x86
+}
+[+script] .startup = {
+    display_msg "BootLens diagnostic scenario"
+    devc-con -n2
+    waitfor /dev/con1 5
+    reopen /dev/con1
+    [+session] /bin/shell -l &
+}
+[type=link] /tmp=/dev/shmem
+/usr/bin/observer=observer-v1
+/usr/bin/observer=observer-v2

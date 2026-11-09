@@ -1,0 +1,20 @@
+# BootLens authored review fixture, not a board-qualified boot image.
+# No QNX boot or mkifs build is claimed by this static demonstration.
+[virtual=x86_64,bios] .bootstrap = {
+    startup-x86
+    PATH=/proc/boot:/bin:/usr/bin
+    procnto-smp-instr
+}
+[+script] .startup = {
+    display_msg "BootLens reviewed scenario"
+    devc-con -n2 &
+    waitfor /dev/con1 5
+    reopen /dev/con1
+    [+session] /bin/shell -l &
+}
+libc.so
+libgcc_s.so.1
+/usr/lib/ldqnx-64.so.2=ldqnx-64.so.2
+devc-con
+/bin/shell=esh
+/usr/bin/observer=observer-v2

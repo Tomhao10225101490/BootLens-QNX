@@ -1,0 +1,7 @@
+BootLens · QNX SDP 8.0 mkifs
+reviewed.build · x86_64 · supported-subset
+8 entries / 5 startup commands
+
+
+0 errors, 0 warnings, 0 notes.
+Static preflight only. No QNX SDK or target execution performed. Not a replacement for mkifs, ELF dependency analysis, or boot testing.

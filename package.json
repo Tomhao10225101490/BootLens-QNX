@@ -1,0 +1,1 @@
+{"name":"bootlens","version":"1.0.0","type":"module","private":true,"description":"Host-side preflight diagnostics for QNX SDP 8.0 mkifs buildfiles","bin":{"bootlens":"cli.mjs"},"scripts":{"test":"node --test tests/*.test.mjs","dev":"python3 -m http.server 8767 --directory dist"},"engines":{"node":">=20"}}

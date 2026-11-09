@@ -1,0 +1,23 @@
+BootLens · QNX SDP 8.0 mkifs
+broken.build · x86_64 · supported-subset
+6 entries / 5 startup commands
+
+broken.build:4 ERROR BL011: Bootfile follows another image file specification.
+  Place the bootfile before every other file specification.
+broken.build:4 ERROR BL012: Bootstrap must begin with startup-* and end with procnto*.
+  The first executable must be startup-* and the last executable must be procnto*.
+broken.build:15 WARNING BL024: /tmp links to /dev/shmem.
+  A /tmp link to /dev/shmem is not a complete filesystem. Use an appropriate filesystem for a production deployment.
+broken.build:17 ERROR BL020: Duplicate target /usr/bin/observer
+  Give each explicitly declared target path a single definition.
+broken.build:10 WARNING BL021: Executable is not explicitly declared in this image: devc-con
+  Add the executable to the image, or verify the filesystem supplying it is available before this command.
+broken.build:10 WARNING BL023: Review foreground resource manager: devc-con
+  A long-running foreground process can prevent later startup commands. Review whether this resource manager should run in the background.
+broken.build:13 WARNING BL021: Executable is not explicitly declared in this image: /bin/shell
+  Add the executable to the image, or verify the filesystem supplying it is available before this command.
+broken.build:1 NOTE BL025: Expected QNX 8.0 runtime linker path is not explicitly declared.
+  For dynamically linked programs, check that /usr/lib/ldqnx-64.so.2 is provided or linked to the runtime linker. This check does not inspect ELF dependencies.
+
+3 errors, 4 warnings, 1 notes.
+Static preflight only. No QNX SDK or target execution performed. Not a replacement for mkifs, ELF dependency analysis, or boot testing.

@@ -1,0 +1,305 @@
+{
+  "tool": "BootLens",
+  "version": "1.0.0",
+  "profile": "QNX SDP 8.0 mkifs",
+  "filename": "broken.build",
+  "coverage": "supported-subset",
+  "counts": {
+    "error": 3,
+    "warning": 4,
+    "note": 1
+  },
+  "findings": [
+    {
+      "code": "BL011",
+      "level": "error",
+      "file": "broken.build",
+      "line": 4,
+      "message": "Bootfile follows another image file specification.",
+      "detail": "",
+      "help": "Place the bootfile before every other file specification.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL012",
+      "level": "error",
+      "file": "broken.build",
+      "line": 4,
+      "message": "Bootstrap must begin with startup-* and end with procnto*.",
+      "detail": "",
+      "help": "The first executable must be startup-* and the last executable must be procnto*.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL024",
+      "level": "warning",
+      "file": "broken.build",
+      "line": 15,
+      "message": "/tmp links to /dev/shmem.",
+      "detail": "",
+      "help": "A /tmp link to /dev/shmem is not a complete filesystem. Use an appropriate filesystem for a production deployment.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL020",
+      "level": "error",
+      "file": "broken.build",
+      "line": 17,
+      "message": "Duplicate target /usr/bin/observer",
+      "detail": "First declared at broken.build:16.",
+      "help": "Give each explicitly declared target path a single definition.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL021",
+      "level": "warning",
+      "file": "broken.build",
+      "line": 10,
+      "message": "Executable is not explicitly declared in this image: devc-con",
+      "detail": "It may come from an external filesystem or automatic expansion; verify its availability at this point.",
+      "help": "Add the executable to the image, or verify the filesystem supplying it is available before this command.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL023",
+      "level": "warning",
+      "file": "broken.build",
+      "line": 10,
+      "message": "Review foreground resource manager: devc-con",
+      "detail": "",
+      "help": "A long-running foreground process can prevent later startup commands. Review whether this resource manager should run in the background.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL021",
+      "level": "warning",
+      "file": "broken.build",
+      "line": 13,
+      "message": "Executable is not explicitly declared in this image: /bin/shell",
+      "detail": "It may come from an external filesystem or automatic expansion; verify its availability at this point.",
+      "help": "Add the executable to the image, or verify the filesystem supplying it is available before this command.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    },
+    {
+      "code": "BL025",
+      "level": "note",
+      "file": "broken.build",
+      "line": 1,
+      "message": "Expected QNX 8.0 runtime linker path is not explicitly declared.",
+      "detail": "This may be intentional for static executables or an externally supplied filesystem.",
+      "help": "For dynamically linked programs, check that /usr/lib/ldqnx-64.so.2 is provided or linked to the runtime linker. This check does not inspect ELF dependencies.",
+      "url": "https://qnx.com/developers/docs/8.0/com.qnx.doc.neutrino.utilities/topic/m/mkifs.html"
+    }
+  ],
+  "entries": [
+    {
+      "target": "libc.so",
+      "path": "/proc/boot/libc.so",
+      "source": "libc.so",
+      "kind": "file",
+      "file": "broken.build",
+      "line": 3,
+      "attrs": {},
+      "body": [],
+      "closed": true,
+      "implicitPrefix": true
+    },
+    {
+      "target": ".bootstrap",
+      "path": "/proc/boot/.bootstrap",
+      "source": null,
+      "kind": "bootstrap",
+      "file": "broken.build",
+      "line": 4,
+      "attrs": {
+        "virtual": "x86_64,bios"
+      },
+      "body": [
+        {
+          "text": "    procnto-smp-instr",
+          "file": "broken.build",
+          "line": 5
+        },
+        {
+          "text": "    startup-x86",
+          "file": "broken.build",
+          "line": 6
+        }
+      ],
+      "closed": true,
+      "implicitPrefix": true,
+      "arch": "x86_64"
+    },
+    {
+      "target": ".startup",
+      "path": "/proc/boot/.startup",
+      "source": null,
+      "kind": "script",
+      "file": "broken.build",
+      "line": 8,
+      "attrs": {
+        "script": true
+      },
+      "body": [
+        {
+          "text": "    display_msg \"BootLens diagnostic scenario\"",
+          "file": "broken.build",
+          "line": 9
+        },
+        {
+          "text": "    devc-con -n2",
+          "file": "broken.build",
+          "line": 10
+        },
+        {
+          "text": "    waitfor /dev/con1 5",
+          "file": "broken.build",
+          "line": 11
+        },
+        {
+          "text": "    reopen /dev/con1",
+          "file": "broken.build",
+          "line": 12
+        },
+        {
+          "text": "    [+session] /bin/shell -l &",
+          "file": "broken.build",
+          "line": 13
+        }
+      ],
+      "closed": true,
+      "implicitPrefix": true
+    },
+    {
+      "target": "/tmp",
+      "path": "/tmp",
+      "source": "/dev/shmem",
+      "kind": "link",
+      "file": "broken.build",
+      "line": 15,
+      "attrs": {
+        "type": "link"
+      },
+      "body": [],
+      "closed": true,
+      "implicitPrefix": true
+    },
+    {
+      "target": "/usr/bin/observer",
+      "path": "/usr/bin/observer",
+      "source": "observer-v1",
+      "kind": "file",
+      "file": "broken.build",
+      "line": 16,
+      "attrs": {},
+      "body": [],
+      "closed": true,
+      "implicitPrefix": true
+    },
+    {
+      "target": "/usr/bin/observer",
+      "path": "/usr/bin/observer",
+      "source": "observer-v2",
+      "kind": "file",
+      "file": "broken.build",
+      "line": 17,
+      "attrs": {},
+      "body": [],
+      "closed": true,
+      "implicitPrefix": true
+    }
+  ],
+  "commands": [
+    {
+      "name": "display_msg",
+      "args": [
+        "BootLens diagnostic scenario"
+      ],
+      "env": {},
+      "attrs": {},
+      "raw": "display_msg \"BootLens diagnostic scenario\"",
+      "background": false,
+      "text": "    display_msg \"BootLens diagnostic scenario\"",
+      "file": "broken.build",
+      "line": 9,
+      "modifiers": {},
+      "kind": "internal",
+      "resolved": null
+    },
+    {
+      "name": "devc-con",
+      "args": [
+        "-n2"
+      ],
+      "env": {},
+      "attrs": {},
+      "raw": "devc-con -n2",
+      "background": false,
+      "text": "    devc-con -n2",
+      "file": "broken.build",
+      "line": 10,
+      "modifiers": {},
+      "kind": "external",
+      "resolved": null
+    },
+    {
+      "name": "waitfor",
+      "args": [
+        "/dev/con1",
+        "5"
+      ],
+      "env": {},
+      "attrs": {},
+      "raw": "waitfor /dev/con1 5",
+      "background": false,
+      "text": "    waitfor /dev/con1 5",
+      "file": "broken.build",
+      "line": 11,
+      "modifiers": {},
+      "kind": "internal",
+      "resolved": null
+    },
+    {
+      "name": "reopen",
+      "args": [
+        "/dev/con1"
+      ],
+      "env": {},
+      "attrs": {},
+      "raw": "reopen /dev/con1",
+      "background": false,
+      "text": "    reopen /dev/con1",
+      "file": "broken.build",
+      "line": 12,
+      "modifiers": {},
+      "kind": "internal",
+      "resolved": null
+    },
+    {
+      "name": "/bin/shell",
+      "args": [
+        "-l",
+        "&"
+      ],
+      "env": {},
+      "attrs": {
+        "session": true
+      },
+      "raw": "/bin/shell -l &",
+      "background": true,
+      "text": "    [+session] /bin/shell -l &",
+      "file": "broken.build",
+      "line": 13,
+      "modifiers": {
+        "session": true
+      },
+      "kind": "external",
+      "resolved": null
+    }
+  ],
+  "sourceFiles": {
+    "broken.build": "# BootLens authored diagnostic fixture, not a board-qualified boot image.\n# This file deliberately contains ordering and manifest mistakes.\nlibc.so\n[virtual=x86_64,bios] .bootstrap = {\n    procnto-smp-instr\n    startup-x86\n}\n[+script] .startup = {\n    display_msg \"BootLens diagnostic scenario\"\n    devc-con -n2\n    waitfor /dev/con1 5\n    reopen /dev/con1\n    [+session] /bin/shell -l &\n}\n[type=link] /tmp=/dev/shmem\n/usr/bin/observer=observer-v1\n/usr/bin/observer=observer-v2\n"
+  },
+  "architecture": "x86_64",
+  "disclaimer": "Static preflight only. No QNX SDK or target execution performed. Not a replacement for mkifs, ELF dependency analysis, or boot testing."
+}
