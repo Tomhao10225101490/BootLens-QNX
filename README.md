@@ -10,6 +10,10 @@ Public workbench: https://tomhao10225101490.github.io/BootLens-QNX/
 
 Source: https://github.com/Tomhao10225101490/BootLens-QNX
 
+Demo: https://youtu.be/IP4m4F7rZP8
+
+[Codelab: QNX 8.0 buildfile preflight](docs/CODELAB.md)
+
 ## Run
 
 Node 20+ for the CLI and tests. No package installation, QNX SDK, API key or account needed for BootLens itself.
