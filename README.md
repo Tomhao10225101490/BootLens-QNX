@@ -4,6 +4,12 @@
 
 BootLens targets **QNX Global Hackathon / Developer Tooling & Host Tools**. It analyzes QNX-specific virtual bootstraps, image entries, inline startup scripts, internal commands and modifier scope. It is not a generic checklist relabeled for QNX.
 
+## Try it
+
+Public workbench: https://tomhao10225101490.github.io/BootLens-QNX/
+
+Source: https://github.com/Tomhao10225101490/BootLens-QNX
+
 ## Run
 
 Node 20+ for the CLI and tests. No package installation, QNX SDK, API key or account needed for BootLens itself.
